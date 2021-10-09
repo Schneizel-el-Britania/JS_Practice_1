@@ -189,10 +189,13 @@ const customSplice = function (start, deleteCount) {
       itemN[i - defaultParamsCount] = arguments[i];
     }
 
+    for (let i = this.length - 1; i >= start; i--) {
+      this[i + itemN.length] = this[i];
+    }
     for (let i = 0; i < itemN.length; i++) {
-      this[this.length] = this[start + i];
       this[start + i] = itemN[i];
     }
+
   }
   return removedItemsArray;
 

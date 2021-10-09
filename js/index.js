@@ -130,9 +130,8 @@ const customSlice = function (begin = 0, end = this.length) {
     begin = this.length + begin;
   }
 
-  let j = 0;
   for (let i = begin; i < end; i++) {
-    resultArray[j++] = this[i];
+    resultArray[i - begin] = this[i];
   }
 
   return resultArray;
@@ -143,3 +142,46 @@ const sliceArray = [1, 2, 3, 4, 5].customSlice(undefined, -2);
 const sliceArray2 = [1, 2, 3, 4, 5].customSlice(-2);
 console.log(sliceArray);
 console.log(sliceArray2);
+
+
+/**
+ * Custom splice method
+ * @returns array[]
+ */
+const customSplice = function (start, deleteCount) {
+  let removedItemsArray = [];
+  let itemN = [];
+  for (let i = 2; i < arguments.length; i++) {
+    itemN[i - 2] = arguments[i];
+  }
+
+  if (deleteCount) {
+    let i = 0;
+    while (i < deleteCount) {
+      removedItemsArray[i] = this[start + i];
+      delete this[start + i++];
+    }
+
+    if (start + deleteCount !== this.length) {
+      let k = 0;
+      for (let j = start; j < this.length; j++) {
+        while (this[start + k] === undefined) { k++; }
+        this[j] = this[k + j];
+      }
+    }
+    this.length -= deleteCount;
+  }
+
+  // if (itemN.length) {
+  //   for (let i = this.length; i >= start; i--) {
+  //     this[i + itemN.length] = this[i];
+  //   }
+  // }
+
+  return removedItemsArray;
+
+}
+Array.prototype.customSplice = customSplice;
+
+const spliceArray = [0, 1, 2, 3, 4];
+console.log(spliceArray.customSplice(2, 2), spliceArray);

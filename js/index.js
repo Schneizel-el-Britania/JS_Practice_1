@@ -149,11 +149,8 @@ console.log(sliceArray2);
  * @returns array[]
  */
 const customSplice = function (start, deleteCount) {
+  const defaultParamsCount = 2;
   let removedItemsArray = [];
-  let itemN = [];
-  for (let i = 2; i < arguments.length; i++) {
-    itemN[i - 2] = arguments[i];
-  }
 
   if (deleteCount) {
     let i = 0;
@@ -172,16 +169,24 @@ const customSplice = function (start, deleteCount) {
     this.length -= deleteCount;
   }
 
-  // if (itemN.length) {
-  //   for (let i = this.length; i >= start; i--) {
-  //     this[i + itemN.length] = this[i];
-  //   }
-  // }
 
+  if (arguments.length > defaultParamsCount) {
+    let itemN = [];
+    for (let i = defaultParamsCount; i < arguments.length; i++) {
+      itemN[i - defaultParamsCount] = arguments[i];
+    }
+
+    for (let i = 0; i < itemN.length; i++) {
+      this[this.length] = this[start + i];
+      this[start + i] = itemN[i];
+    }
+  }
   return removedItemsArray;
 
 }
 Array.prototype.customSplice = customSplice;
 
 const spliceArray = [0, 1, 2, 3, 4];
-console.log(spliceArray.customSplice(2, 2), spliceArray);
+const spliceArray2 = [0, 1, 2, 3, 4];
+console.log(spliceArray.customSplice(2, 1), spliceArray);
+console.log(spliceArray2.customSplice(2, 2, 'sss', 'ddd', 'ddd'), spliceArray);

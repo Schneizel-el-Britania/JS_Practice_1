@@ -21,3 +21,21 @@ Array.prototype.customConcat = customConcat;
 
 const concatArray = [2, 4].customConcat([0, 1], [2, 3, 5], [4, 5, 5]);
 console.log(concatArray);
+
+
+/**
+ * Custom reverse method
+ * @returns array[]
+ */
+const customReverse = function () {
+  let reversedArray = [];
+  let i = 0;
+  for (let j = this.length - 1; j >= 0; j--) {
+    reversedArray[i++] = this[j];
+  }
+  return reversedArray;
+}
+Array.prototype.customReverse = customReverse;
+
+const reverseArray = ['v', 'o', 'v', 'a'].customReverse();
+console.log(reverseArray);

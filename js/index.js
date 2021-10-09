@@ -146,13 +146,26 @@ console.log(sliceArray2);
 
 /**
  * Custom splice method
- * @returns array[]
+ * @returns deleted items array[]
  */
 const customSplice = function (start, deleteCount) {
   const defaultParamsCount = 2;
   let removedItemsArray = [];
 
+  if (start > this.length) {
+    start = this.length;
+  }
+  if (start < 0) {
+    start = this.length + start;
+  }
+  if (deleteCount === 0 && arguments.length === defaultParamsCount) {
+    return null;
+  }
+
   if (deleteCount) {
+    if (start + deleteCount > this.length) {
+      deleteCount = this.length - start;
+    }
     let i = 0;
     while (i < deleteCount) {
       removedItemsArray[i] = this[start + i];
@@ -186,7 +199,15 @@ const customSplice = function (start, deleteCount) {
 }
 Array.prototype.customSplice = customSplice;
 
-const spliceArray = [0, 1, 2, 3, 4];
-const spliceArray2 = [0, 1, 2, 3, 4];
-console.log(spliceArray.customSplice(2, 1), spliceArray);
-console.log(spliceArray2.customSplice(2, 2, 'sss', 'ddd', 'ddd'), spliceArray);
+const spliceArray1 = [1, 2, 3, 4, 5];
+const spliceArray2 = [1, 2, 3, 4, 5];
+const spliceArray3 = [1, 2, 3, 4, 5];
+const spliceArray4 = [1, 2, 3, 4, 5];
+console.log('splice:', spliceArray1.customSplice(1, 2), 'ready:', spliceArray1);
+console.log('splice:', spliceArray2.customSplice(0, 1), spliceArray2.customSplice(-1, 1), 'ready:', spliceArray2);
+spliceArray3.customSplice(3, 0, 'a', 'b', 'c');
+console.log('splice:', 'ready:', spliceArray3);
+spliceArray4.customSplice(1, 0, 'a', 'b');
+spliceArray4.customSplice(-2, 0, 'c');
+spliceArray4.customSplice(spliceArray4.length, 0, 'e');
+console.log('splice:', 'ready:', spliceArray4);

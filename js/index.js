@@ -55,3 +55,19 @@ Array.prototype.customPush = customPush;
 
 const pushArray = [1, 2, 3];
 console.log(pushArray.customPush(4, 5), pushArray);
+
+
+/**
+ * Custom unshift method
+ * @returns array.lenght
+ */
+const customUnshift = function () {
+  for (let j = this.length + arguments.length - 1; j >= 0; j--) {
+    this[j] = this[j - arguments.length] ? this[j - arguments.length] : arguments[j];
+  }
+  return this.length;
+}
+Array.prototype.customUnshift = customUnshift;
+
+const unshiftArray = [1, 2, 3];
+console.log(unshiftArray.customUnshift(4, 5, 6), unshiftArray);

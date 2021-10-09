@@ -115,3 +115,31 @@ Array.prototype.customPop = customPop;
 const popArray = ['js', 'css', 'html'];
 console.log(popArray.customPop(), popArray);
 console.log([].customPop());
+
+
+/**
+ * Custom slice method
+ * @returns array[]
+ */
+const customSlice = function (begin = 0, end = this.length) {
+  let resultArray = [];
+  if (end < 0) {
+    end = this.length + end;
+  }
+  if (begin < 0) {
+    begin = this.length + begin;
+  }
+
+  let j = 0;
+  for (let i = begin; i < end; i++) {
+    resultArray[j++] = this[i];
+  }
+
+  return resultArray;
+}
+Array.prototype.customSlice = customSlice;
+
+const sliceArray = [1, 2, 3, 4, 5].customSlice(undefined, -2);
+const sliceArray2 = [1, 2, 3, 4, 5].customSlice(-2);
+console.log(sliceArray);
+console.log(sliceArray2);

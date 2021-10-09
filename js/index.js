@@ -72,6 +72,7 @@ Array.prototype.customUnshift = customUnshift;
 const unshiftArray = [1, 2, 3];
 console.log(unshiftArray.customUnshift(4, 5, 6), unshiftArray);
 
+
 /**
  * Custom shift method
  * @returns deleted array[0]
@@ -91,3 +92,18 @@ Array.prototype.customShift = customShift;
 
 const shiftArray = ['js', 'css', 'html'];
 console.log(shiftArray.customShift(), shiftArray);
+
+
+/**
+ * Custom pop method
+ * @returns deleted array[arr.length - 1]
+ */
+const customPop = function () {
+  const deletedItem = this[this.length - 1];
+  delete this[this.length-- - 1];
+  return deletedItem;
+}
+Array.prototype.customPop = customPop;
+
+const popArray = ['js', 'css', 'html'];
+console.log(popArray.customPop(), popArray);

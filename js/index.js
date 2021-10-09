@@ -71,3 +71,23 @@ Array.prototype.customUnshift = customUnshift;
 
 const unshiftArray = [1, 2, 3];
 console.log(unshiftArray.customUnshift(4, 5, 6), unshiftArray);
+
+/**
+ * Custom shift method
+ * @returns deleted array[0]
+ */
+const customShift = function () {
+  const deletedItem = this[0];
+  delete this[0];
+
+  for (let i = 0; i < this.length; i++) {
+    this[i] = this[++i];
+  }
+  this.length--;
+
+  return deletedItem;
+}
+Array.prototype.customShift = customShift;
+
+const shiftArray = ['js', 'css', 'html'];
+console.log(shiftArray.customShift(), shiftArray);

@@ -39,3 +39,19 @@ Array.prototype.customReverse = customReverse;
 
 const reverseArray = ['v', 'o', 'v', 'a'].customReverse();
 console.log(reverseArray);
+
+
+/**
+ * Custom push method
+ * @returns array.lenght
+ */
+const customPush = function () {
+  for (item in arguments) {
+    this[this.length++] = item;
+  }
+  return this.length;
+}
+Array.prototype.customPush = customPush;
+
+const pushArray = [1, 2, 3];
+console.log(pushArray.customPush(4, 5), pushArray);

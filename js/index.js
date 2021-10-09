@@ -214,3 +214,38 @@ spliceArray4.customSplice(1, 0, 'a', 'b');
 spliceArray4.customSplice(-2, 0, 'c');
 spliceArray4.customSplice(spliceArray4.length, 0, 'e');
 console.log('splice:', 'ready:', spliceArray4);
+
+
+
+const isSorted = function (array) {
+  for (let i = 0; i < array.length; i++) {
+    if (array[i + 1] < array[i]) {
+      return false;
+    }
+  }
+    return true;
+
+}
+/**
+ * Custom sort method
+ * @returns array[]
+ */
+const customSort = function () {
+  while (!isSorted(this)) {
+    let i = 0;
+    while (i < this.length) {
+      if (this[i] > this[i + 1]) {
+        const temp = this[i];
+        this[i] = this[i + 1];
+        this[i + 1] = temp;
+      }
+      i++;
+    }
+  }
+  return this;
+}
+
+Array.prototype.customSort = customSort;
+
+const sortArray = [3, 4, 1, 10, 2, 7];
+console.log(sortArray.customSort());

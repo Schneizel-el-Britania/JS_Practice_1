@@ -54,3 +54,14 @@ const keysObject = {
   css: 'world',
 }
 console.log('keys:', Object.customKeys(keysObject));
+
+
+const strArray = ['asda', 'gerr', 'saaa'];
+const str1 = 'gerr';
+const str2 = 'ssq';
+console.log(hasElems(str1, strArray));
+console.log(hasElems(str2, strArray));
+
+const numArray = [1, 23, 45, 21];
+console.log(hasNum(1, numArray));
+console.log(hasNum(2, numArray));

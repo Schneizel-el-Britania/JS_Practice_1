@@ -18,3 +18,21 @@ const hasElems = function (string, array) {
 const hasNum = function (num, array) {
   return array.some((item) => num === item);
 }
+
+
+/**
+ * Check if two numbers together contains in array
+ * @param {Number} num 
+ * @param {Array} array 
+ * @returns boolean
+ */
+const hasTwoEqualNumTogether = function (num, array) {
+  for (item of array) {
+    num === item ? count++ : count = 0;
+    if (count === 2) {
+      break;
+    }
+  }
+
+  return count === 2;
+}

@@ -53,4 +53,20 @@ const fillRandValue = function (array, size, min, max) {
   return array;
 }
 
+/**
+ * Return minimal and maximal values of array
+ * @param {Array} array 
+ * @returns Array[min, max]
+ */
+const getMinMaxValues = function (array) {
+  let min = array[0];
+  let max = array[0];
+
+  for (const item of array) {
+    min >= item ? min = item : null;
+    max <= item ? max = item : null;
+  }
+  return [min, max];
+}
+
 

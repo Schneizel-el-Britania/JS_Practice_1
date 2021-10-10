@@ -73,3 +73,5 @@ console.log('hasTwoEqualNumTogether:', hasTwoEqualNumTogether(23, numArray2));
 const randArray = [];
 console.log('fillRandValue:', fillRandValue(randArray, 10, 15, 78));
 
+const numArray3 = [4, -2, 5, 19, -130, 0, 10];
+console.log('getMinMaxValues:', getMinMaxValues(numArray3));

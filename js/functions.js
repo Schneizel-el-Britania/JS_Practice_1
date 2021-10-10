@@ -27,7 +27,7 @@ const hasNum = function (num, array) {
  * @returns boolean
  */
 const hasTwoEqualNumTogether = function (num, array) {
-  for (item of array) {
+  for (const item of array) {
     num === item ? count++ : count = 0;
     if (count === 2) {
       break;
@@ -67,6 +67,19 @@ const getMinMaxValues = function (array) {
     max <= item ? max = item : null;
   }
   return [min, max];
+}
+
+/**
+ * Return average value of array
+ * @param {Array} array 
+ * @returns Number
+ */
+const getAverageValue = function (array) {
+  let result = 0;
+  for (const item of array) {
+    result += item / array.length;
+  }
+  return result;
 }
 
 

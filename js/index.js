@@ -75,3 +75,6 @@ console.log('fillRandValue:', fillRandValue(randArray, 10, 15, 78));
 
 const numArray3 = [4, -2, 5, 19, -130, 0, 10];
 console.log('getMinMaxValues:', getMinMaxValues(numArray3));
+
+const arr = [12, 15, 20, 25, 59, 79];
+console.log('getAverageValue:', getAverageValue(arr));

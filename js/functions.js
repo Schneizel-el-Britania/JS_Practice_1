@@ -36,3 +36,21 @@ const hasTwoEqualNumTogether = function (num, array) {
 
   return count === 2;
 }
+
+
+/**
+ * Fill array by random value
+ * @param {Array} array 
+ * @param {Number} size 
+ * @param {Number} max 
+ * @param {Number} min 
+ * @returns Array
+ */
+const fillRandValue = function (array, size, min, max) {
+  for (let i = 0; i < size; i++) {
+    array[i] = Math.floor(Math.random() * (max - min) + min);
+  }
+  return array;
+}
+
+

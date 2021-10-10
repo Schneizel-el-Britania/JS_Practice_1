@@ -69,3 +69,7 @@ console.log('hasNum:',hasNum(2, numArray));
 const numArray2 = [1, 23, 45, 45, 23, 21];
 console.log('hasTwoEqualNumTogether:', hasTwoEqualNumTogether(45, numArray2));
 console.log('hasTwoEqualNumTogether:', hasTwoEqualNumTogether(23, numArray2));
+
+const randArray = [];
+console.log('fillRandValue:', fillRandValue(randArray, 10, 15, 78));
+

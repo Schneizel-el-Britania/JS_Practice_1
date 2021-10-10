@@ -223,7 +223,7 @@ const isSorted = function (array) {
       return false;
     }
   }
-    return true;
+  return true;
 
 }
 /**
@@ -244,8 +244,32 @@ const customSort = function () {
   }
   return this;
 }
-
 Array.prototype.customSort = customSort;
 
 const sortArray = [3, 4, 1, 10, 2, 7];
 console.log(sortArray.customSort());
+
+
+
+/**
+ * Custom keys method
+ * @returns array[]
+ */
+const customKeys = function (obj) {
+  const keys = {};
+  let i = 0;
+  for (let key in obj) {
+    keys[i++] = key;
+  }
+  return keys;
+}
+Object.__proto__.customKeys= customKeys;
+
+
+const keysObject = {
+  js: 'test',
+  jq: 'hello',
+  css: 'world',
+}
+console.log(keysObject);
+console.log(Object.customKeys(keysObject));

@@ -26,15 +26,11 @@ const hasNum = function (num, array) {
  * @param {Array} array 
  * @returns boolean
  */
-const hasTwoEqualNumTogether = function (num, array) {
-  for (const item of array) {
-    num === item ? count++ : count = 0;
-    if (count === 2) {
-      break;
-    }
+const hasTwoEqualNumTogether = function (array) {
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === array[i + 1]) return true;
   }
-
-  return count === 2;
+  return false;
 }
 
 
@@ -46,11 +42,12 @@ const hasTwoEqualNumTogether = function (num, array) {
  * @param {Number} min 
  * @returns Array
  */
-const fillRandValue = function (array, size, min, max) {
+// const fillRandValue = function (array, size, min, max) {
+const fillRandValue = function (size, min, max) {
   for (let i = 0; i < size; i++) {
-    array[i] = Math.floor(Math.random() * (max - min) + min);
+    this[i] = Math.floor(Math.random() * (max - min) + min);
   }
-  return array;
+  return this;
 }
 
 /**

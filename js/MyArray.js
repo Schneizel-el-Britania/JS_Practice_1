@@ -59,8 +59,15 @@ function MyArrayProto() {
     }
     return result;
   }
-}
 
+  this.reverse = function () {
+      let reversedArray = new MyArray();
+      for (let j = this.length - 1; j >= 0; j--) {
+        reversedArray.push(this[j]);
+      }
+      return reversedArray;
+    }
+}
 
 /* Prototype */
 MyArray.prototype = new MyArrayProto();
@@ -70,3 +77,4 @@ const doubles = myArray.map(function (num) {
   return num * 2;
 });
 console.log('map:', doubles);
+console.log('myArray reverse:', myArray.reverse());

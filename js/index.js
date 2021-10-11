@@ -59,22 +59,28 @@ console.log('keys:', Object.customKeys(keysObject));
 const strArray = ['asda', 'gerr', 'saaa'];
 const str1 = 'gerr';
 const str2 = 'ssq';
-console.log('hasElems:',hasElems(str1, strArray));
-console.log('hasElems:',hasElems(str2, strArray));
+console.log('hasElems:', hasElems(str1, strArray));
+console.log('hasElems:', hasElems(str2, strArray));
 
 const numArray = [1, 23, 45, 21];
-console.log('hasNum:',hasNum(1, numArray));
-console.log('hasNum:',hasNum(2, numArray));
+console.log('hasNum:', hasNum(1, numArray));
+console.log('hasNum:', hasNum(2, numArray));
 
 const numArray2 = [1, 23, 45, 45, 23, 21];
-console.log('hasTwoEqualNumTogether:', hasTwoEqualNumTogether(45, numArray2));
-console.log('hasTwoEqualNumTogether:', hasTwoEqualNumTogether(23, numArray2));
+const numArray25 = [1, 23, 45, 56, 23, 21];
+console.log('hasTwoEqualNumTogether:', hasTwoEqualNumTogether(numArray2));
+console.log('hasTwoEqualNumTogether:', hasTwoEqualNumTogether(numArray25));
 
 const randArray = [];
-console.log('fillRandValue:', fillRandValue(randArray, 10, 15, 78));
+randArray.fillRandValue = fillRandValue;
+console.log('fillRandValue:', randArray.fillRandValue( 10, 15, 78));
+// console.log('fillRandValue:', fillRandValue(randArray, 10, 15, 78));
 
 const numArray3 = [4, -2, 5, 19, -130, 0, 10];
 console.log('getMinMaxValues:', getMinMaxValues(numArray3));
 
 const arr = [12, 15, 20, 25, 59, 79];
 console.log('getAverageValue:', getAverageValue(arr));
+
+const arr2 = [];
+console.log('getAverageValue:', getAverageValue(arr2));

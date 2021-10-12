@@ -23,3 +23,8 @@ const getPairBrackets = function (count) {
 
 console.log(getPairBrackets(-1));
 console.log(getPairBrackets(3));
+
+
+/* TASK 3 */
+const getMinMaxValue = (array) => [Math.min(...array), Math.max(...array)];
+console.log(getMinMaxValue([5, 1, 23, 3, -4, 0]));

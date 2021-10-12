@@ -114,17 +114,17 @@ function MyArrayProto() {
 /* Prototype */
 MyArray.prototype = new MyArrayProto();
 
-const myArray = new MyArray(1, 4, 7, 14, 5, 45, 7, 88);
-const doubles = myArray.map(function (num) {
-  return num * 2;
-});
-console.log('map:', doubles);
-console.log('myArray reverse:', myArray.reverse());
-console.log('myArray concat:', myArray.concat(new MyArray(33, 55, 66), new MyArray(77, 88, 66)));
+// const myArray = new MyArray(1, 4, 7, 14, 5, 45, 7, 88);
+// const doubles = myArray.map(function (num) {
+//   return num * 2;
+// });
+// console.log('map:', doubles);
+// console.log('myArray reverse:', myArray.reverse());
+// console.log('myArray concat:', myArray.concat(new MyArray(33, 55, 66), new MyArray(77, 88, 66)));
 
-const unshiftMyArray = new MyArray(1, 2, 3);
-console.log('unshift:', unshiftMyArray.unshift(4, 5, 6), unshiftMyArray);
+// const unshiftMyArray = new MyArray(1, 2, 3);
+// console.log('unshift:', unshiftMyArray.unshift(4, 5, 6), unshiftMyArray);
 
-const shiftMyArray = new MyArray('afds', 'csass', 'hhrwww');
-console.log('shift:', shiftMyArray.shift(), shiftMyArray);
-console.log('shift:', new MyArray().shift());
+// const shiftMyArray = new MyArray('afds', 'csass', 'hhrwww');
+// console.log('shift:', shiftMyArray.shift(), shiftMyArray);
+// console.log('shift:', new MyArray().shift());

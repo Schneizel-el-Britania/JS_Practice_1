@@ -1,5 +1,8 @@
 /* TASK 1 */
 const getPow = (num, exp) => {
+  if (exp === 0) {
+    return 1;
+  }
   if (exp === 1) {
     return num;
   }
@@ -9,6 +12,7 @@ const getPow = (num, exp) => {
 }
 
 console.log(getPow(2, -3));
+console.log(getPow(2, 0));
 
 
 /* TASK 2 */

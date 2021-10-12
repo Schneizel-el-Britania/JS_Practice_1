@@ -9,3 +9,17 @@ const getPow = (num, exp) => {
 }
 
 console.log(getPow(2, -3));
+
+
+/* TASK 2 */
+const getPairBrackets = function (count) {
+  const baskets = '()';
+
+  if (count <= 1) {
+    return baskets;
+  }
+  return baskets.substring(0, baskets.length / 2) + getPairBrackets(count - 1) + baskets.substring(baskets.length / 2, baskets.length);
+}
+
+console.log(getPairBrackets(-1));
+console.log(getPairBrackets(3));

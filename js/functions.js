@@ -28,3 +28,8 @@ console.log(getPairBrackets(3));
 /* TASK 3 */
 const getMinMaxValue = (array) => [Math.min(...array), Math.max(...array)];
 console.log(getMinMaxValue([5, 1, 23, 3, -4, 0]));
+
+
+/* TASK 4 */
+const mulNums = (...args) => args.reduce((res, num) => res * num);
+console.log(mulNums(1, 2, 3, 4, 5));

@@ -67,9 +67,9 @@ function MyArrayProto() {
     }
     return resultArray;
   }
-  this.concat = function () {
+  this.concat = function (...arrays) {
     let resultArray = getArrValues(this);
-    for (array of arguments) {
+    for (array of arrays) {
       for (let i = 0; i < array.length; i++) {
         resultArray.push(array[i]);
       }

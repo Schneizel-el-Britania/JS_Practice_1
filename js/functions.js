@@ -72,7 +72,7 @@ const getMinMaxValues = function (array) {
  * @returns Number
  */
 const getAverageValue = function (array) {
-  let result = 0;
+  let result = null;
   for (const item of array) {
     result += item / array.length;
   }

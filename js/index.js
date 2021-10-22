@@ -1,72 +1,53 @@
-class Figure3D {
-  constructor(name) {
-    this.name = name;
+class Friend {
+  constructor(candiesCount, friendsArray) {
+    if (this._checkValue(candiesCount, 'number')) {
+      this.candiesCount = candiesCount;
+    }
+    if (Array.isArray(friendsArray)) {
+      this.friendsArray = friendsArray;
+    }
   }
 
   _checkValue(value, type) {
     if (typeof value !== type) {
       throw TypeError('Value should be ' + type);
     } else if (value <= 0) {
-      throw RangeError('Value should be more than 0');
+      throw RangeError('You should have Candies!');
     }
-
     return true;
   }
 
-  get figureVolume() { }
-}
+  get allFriendsCandies() {
+    let result = this.candiesCount;
 
+    this.friendsArray.forEach((friend) => {
+      if (!Friend.isFriend(friend)) {
+        return 0;
+      }
+      if (friend.friendsArray.length) {
+        result += friend.allFriendsCandies;
+      } else {
+        return result += friend.candiesCount;
+      }
+    });
 
-class Sphere extends Figure3D {
-  constructor(r) {
-    super('Sphere');
-
-    if (this._checkValue(r, 'number')) {
-      this.r = r;
-    }
+    return result;
   }
 
-  get figureVolume() {
-    return (4 * Math.PI * this.r ** 3) / 3;
-  }
-}
-
-class Cube extends Figure3D {
-  constructor(a) {
-    super('Cube');
-
-    if (this._checkValue(a, 'number')) {
-      this.a = a;
-    }
-  }
-
-  get figureVolume() {
-    return this.a ** 3;
+  static isFriend(obj) {
+    return obj instanceof Friend;
   }
 }
 
-class Cylinder extends Figure3D {
-  constructor(r, h) {
-    super('Cylinder');
 
-    if (this._checkValue(r, 'number')) {
-      this.r = r;
-    }
-    if (this._checkValue(h, 'number')) {
-      this.h = h;
-    }
-  }
+const friend9 = new Friend(9, []);
+const friend8 = new Friend(8, []);
+const friend7 = new Friend(7, []);
+const friend6 = new Friend(6, []);
+const friend5 = new Friend(5, []);
+const friend4 = new Friend(4, []);
+const friend3 = new Friend(3, [friend7, friend8, friend9]);
+const friend2 = new Friend(2, [friend4, friend5, friend6]);
+const friend1 = new Friend(1, [friend2, 2, friend3]);
 
-  get figureVolume() {
-    return Math.PI * this.r ** 2 * this.h;
-  }
-}
-
-const getFigureVolume = function (figureName, figureType, ...values) {
-  figureName = new figureType(...values);
-  console.log(figureName.name, figureName.figureVolume);
-}
-
-getFigureVolume('sphere', Sphere, 10);
-getFigureVolume('cube', Cube, 15);
-getFigureVolume('cylinder', Cylinder, 5, 50);
+console.log(friend1.allFriendsCandies);

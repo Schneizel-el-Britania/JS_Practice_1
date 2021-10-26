@@ -1,0 +1,2 @@
+const NAME_LENGTH = 3;
+const STUDY_DURATION = 5;
